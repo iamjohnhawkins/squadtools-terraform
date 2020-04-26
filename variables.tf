@@ -26,29 +26,25 @@ variable "availability_zone" {
   }
 }
 
-variable "db_password" {
-  description = "Database password"
-}
-
-variable "film_ratings_app_image" {
-  description = "Docker image for the film ratings application"
+variable "squadtools_app_image" {
+  description = "Docker image for the squadtools application"
 }
 
 ########################### Test VPC Config ################################
 
-variable "film_ratings_vpc" {
-  description = "VPC for Film Ratings environment"
+variable "squadtools_vpc" {
+  description = "VPC for Squadtools environment"
 }
 
-variable "film_ratings_network_cidr" {
-  description = "IP addressing for Film Ratings Network"
+variable "squadtools_network_cidr" {
+  description = "IP addressing for Squadtools Network"
 }
 
-variable "film_ratings_public_01_cidr" {
+variable "squadtools_public_01_cidr" {
   description = "Public 0.0 CIDR for externally accessible subnet"
 }
 
-variable "film_ratings_public_02_cidr" {
+variable "squadtools_public_02_cidr" {
   description = "Public 0.0 CIDR for externally accessible subnet"
 }
 

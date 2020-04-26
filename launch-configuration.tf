@@ -14,15 +14,11 @@ resource "aws_launch_configuration" "ecs-launch-configuration" {
     create_before_destroy = true
   }
 
-  security_groups             = ["${aws_security_group.film_ratings_public_sg.id}"]
+  security_groups             = ["${aws_security_group.squadtools_public_sg.id}"]
   associate_public_ip_address = "true"
   key_name                    = "${var.ecs_key_pair_name}"
   user_data                   = <<EOF
                                   #!/bin/bash
                                   echo ECS_CLUSTER=${var.ecs_cluster} >> /etc/ecs/ecs.config
-                                  mkdir -p /mnt/efs/postgres
-                                  cd /mnt
-                                  sudo yum install -y amazon-efs-utils
-                                  sudo mount -t efs ${aws_efs_mount_target.filmdbefs-mnt.0.dns_name}:/ efs
                                   EOF
   }
